@@ -1,46 +1,33 @@
-
 /* eslint-disable */
 
-'use client';
+import { fetchAccessToken } from "hume";
+import ClientComponent from "../voiceAssistant/components/ClientComponent";
 
-import { useEffect, useState } from 'react';
-import ClientComponent from "./components/ClientComponent";
+export default async function Voice() {
+  try {
+    // Attempt to fetch the access token from the Hume API
+    const accessToken = await fetchAccessToken({
+      apiKey: String(process.env.HUME_API_KEY),
+      secretKey: String(process.env.HUME_SECRET_KEY),
+    });
 
-export default function Voice() {
-  const [accessToken, setAccessToken] = useState<string | null>(null);
-  const [error, setError] = useState<string | null>(null);
+    if (!accessToken) {
+      console.error("No access token received.");
+      throw new Error("Failed to fetch access token from Hume API.");
+    }
 
-  useEffect(() => {
-    const fetchToken = async () => {
-      try {
-        const response = await fetch('/api/getHumeToken');
-        const data = await response.json();
-        
-        if (data.error) {
-          setError(data.error);
-          return;
-        }
-        
-        setAccessToken(data.accessToken);
-      } catch (err) {
-        setError('Failed to fetch access token');
-      }
-    };
-
-    fetchToken();
-  }, []);
-
-  if (error) {
-    return <div className="p-4 text-red-500">Error: {error}</div>;
+    // Render the component with the fetched access token
+    return (
+      <div>
+        <ClientComponent accessToken={accessToken} />
+      </div>
+    );
+  } catch (error:any) {
+    console.error("Error fetching access token:", error.message);
+    return (
+      <div>
+        Error: Failed to fetch access token. Please check your API credentials.
+      </div>
+    );
   }
-
-  if (!accessToken) {
-    return <div className="p-4">Loading...</div>;
-  }
-
-  return (
-    <div>
-      <ClientComponent accessToken={accessToken} />
-    </div>
-  );
 }
