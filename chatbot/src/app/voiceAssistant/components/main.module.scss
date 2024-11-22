@@ -1,0 +1,70 @@
+/* General Styles for Both Components */
+.container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Messages Component */
+  .messages {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Spacing between messages */
+    margin-bottom: 20px;
+  
+    .message {
+      padding: 10px;
+      border-radius: 8px;
+      background-color: #f0f0f0;
+      color: #333;
+  
+      &.user_message {
+        background-color: #d4edda; /* Light green for user messages */
+        border-left: 4px solid #28a745; /* Green border */
+      }
+  
+      &.assistant_message {
+        background-color: #d1ecf1; /* Light blue for assistant messages */
+        border-left: 4px solid #007bff; /* Blue border */
+      }
+  
+      .role {
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+  
+      .content {
+        font-size: 14px;
+      }
+    }
+  }
+  
+  /* Controls Component */
+  .controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+  
+      &:hover {
+        filter: brightness(0.9);
+      }
+  
+      &.start-session {
+        background-color: #007bff; /* Blue for start session */
+      }
+  
+      &.end-session {
+        background-color: #dc3545; /* Red for end session */
+      }
+    }
+  }
+  

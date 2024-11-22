@@ -1,0 +1,44 @@
+.page {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
+    flex-direction: column; 
+    background-color: black; 
+  }
+  
+  .talk,
+  .chat {
+    margin: 10px; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:5px;
+  }
+  
+  .talk {
+    background-color: black;
+    border:2px solid white;
+    color: #fff; 
+  }
+  
+  .chat {
+    background-color: black;
+    border:2px solid white;
+    color: #fff; 
+  }
+  
+  
+  .talk:hover {
+    color:red;
+  }
+  
+  .chat:hover {
+    color:red;
+  }
+  

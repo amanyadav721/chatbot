@@ -1,0 +1,89 @@
+.chatContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    max-width: 600px;
+    margin: 0 auto;
+    border: 1px solid white;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .messagesContainer {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+    background-color: black;
+    color:red;
+    padding: 20px;
+  
+    .message {
+      margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 8px;
+      max-width: 75%;
+  
+      &.user {
+        align-self: flex-end;
+        background-color: black;
+        text-align: right;
+      }
+  
+      &.ai {
+        align-self: flex-start;
+        background-color: black;
+        text-align: left;
+      }
+  
+      .messageContent {
+        font-size: 14px;
+        color: red;
+      }
+    }
+  
+    .loading {
+      font-size: 14px;
+      color: #999;
+      font-style: italic;
+    }
+  }
+  
+  .inputContainer {
+    display: flex;
+    border-top: 1px solid #ddd;
+    padding: 10px;
+    background-color: black;
+
+  
+    .input {
+      flex: 1;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin-right: 8px;
+    }
+  
+    .sendButton {
+      padding: 10px 20px;
+      font-size: 16px;
+      color: #fff;
+      background-color: black;
+      border: 2px solid white;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+  
+      &:hover {
+        background-color: black;
+        color: red;
+      }
+  
+      &:disabled {
+        background-color:grey;
+        color:black;
+        cursor: not-allowed;
+      }
+    }
+  }
+  
