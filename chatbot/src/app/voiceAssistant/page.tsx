@@ -1,5 +1,4 @@
 /* eslint-disable */
-
 import { fetchAccessToken } from "hume";
 import ClientComponent from "../voiceAssistant/components/ClientComponent";
 

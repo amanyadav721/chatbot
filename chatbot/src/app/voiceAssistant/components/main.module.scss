@@ -2,6 +2,7 @@
 .container {
     padding: 20px;
     font-family: Arial, sans-serif;
+   
   }
   
   /* Messages Component */
@@ -15,16 +16,17 @@
       padding: 10px;
       border-radius: 8px;
       background-color: #f0f0f0;
-      color: #333;
+      color: white;
   
       &.user_message {
-        background-color: #d4edda; /* Light green for user messages */
-        border-left: 4px solid #28a745; /* Green border */
+        background-color: black; /* Light green for user messages */
+        border-left: 4px solid red; /* Green border */
+        
       }
   
       &.assistant_message {
-        background-color: #d1ecf1; /* Light blue for assistant messages */
-        border-left: 4px solid #007bff; /* Blue border */
+        background-color: black; /* Light blue for assistant messages */
+        border-left: 4px solid red; /* Blue border */
       }
   
       .role {
@@ -59,12 +61,30 @@
       }
   
       &.start-session {
-        background-color: #007bff; /* Blue for start session */
+        background-color: black; /* Blue for start session */
+        border: 1px solid red;
       }
   
       &.end-session {
-        background-color: #dc3545; /* Red for end session */
+        background-color: black; /* Red for end session */
+        border: 1px solid red;
       }
     }
   }
   
+  
+.backbtn{
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap:5px;
+  background-color: black;
+  border: none;
+  color: white;
+  transition: border 0.5;
+}
+.backbtn:hover{
+cursor: pointer;
+color:red;
+}

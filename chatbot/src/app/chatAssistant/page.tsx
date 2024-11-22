@@ -2,8 +2,12 @@
 import { useState } from "react";
 import axios from "axios";
 import styles from "./chat.module.scss";
+import { CircleChevronLeft, Router } from "lucide-react";
+import { useRouter } from "next/navigation";
+
 
 export default function Chat() {
+  const router = useRouter()
   const [messages, setMessages] = useState<
     { role: "user" | "ai"; content: string }[]
   >([]);
@@ -15,6 +19,7 @@ export default function Chat() {
 
     const userMessage: { role: "user"; content: string } = { role: "user", content: input };
     setMessages((prev) => [...prev, userMessage]);
+
 
 
     setLoading(true);
@@ -51,7 +56,11 @@ export default function Chat() {
       }
     };
 
+   
+
   return (
+    <div>
+      <button className={styles.backbtn} onClick={()=>{router.push("./")}}> <CircleChevronLeft color="red" />Home</button>
     <div className={styles.chatContainer}>
       <div className={styles.messagesContainer}>
         {messages.map((msg, index) => (
@@ -82,6 +91,7 @@ export default function Chat() {
           Send
         </button>
       </div>
+    </div>
     </div>
   );
 }

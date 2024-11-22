@@ -2,11 +2,16 @@
 "use client";
 import { useVoice } from "@humeai/voice-react";
 import styles from "./main.module.scss"
+import { useRouter } from "next/navigation";
+import { CircleChevronLeft } from "lucide-react";
 
 export default function Messages() {
   const { messages } = useVoice();
+  const router = useRouter()
 
   return (
+    <div>
+       <button className={styles.backbtn} onClick={()=>{router.push("./")}}> <CircleChevronLeft color="red" />Home</button>
     <div className={`${styles.container} ${styles.messages}`}>
       {messages.map((msg, index) => {
         if (msg.type === "user_message" || msg.type === "assistant_message") {
@@ -23,6 +28,7 @@ export default function Messages() {
 
         return null;
       })}
+    </div>
     </div>
   );
 }
