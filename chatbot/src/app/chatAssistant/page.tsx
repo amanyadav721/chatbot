@@ -13,8 +13,9 @@ export default function Chat() {
   const handleSend = async () => {
     if (!input.trim()) return;
 
-    const userMessage = { role: "user", content: input };
+    const userMessage: { role: "user"; content: string } = { role: "user", content: input };
     setMessages((prev) => [...prev, userMessage]);
+
 
     setLoading(true);
 
@@ -31,11 +32,13 @@ export default function Chat() {
         );
     
         // Update to handle the "response" key correctly
-        const aiMessage = {
-          role: "ai",
+        const aiMessage: { role: "ai"; content: string } = { 
+          role: "ai", 
           content: response.data.response || "No response from AI.",
         };
+        
         setMessages((prev) => [...prev, aiMessage]);
+        
       } catch (error) {
         console.error("Error:", error);
         setMessages((prev) => [

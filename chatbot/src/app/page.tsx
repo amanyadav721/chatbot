@@ -5,7 +5,7 @@ import styles from "./page.module.scss";
 
 export default function Home() {
   const router = useRouter()
-  const handleclick = (path:any) =>{
+  const handleclick = (path:string) =>{
     router.push(path)
     
   }
