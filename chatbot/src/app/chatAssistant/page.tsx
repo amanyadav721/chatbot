@@ -2,7 +2,7 @@
 import { useState } from "react";
 import axios from "axios";
 import styles from "./chat.module.scss";
-import { CircleChevronLeft, Router } from "lucide-react";
+import { CircleChevronLeft } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 
