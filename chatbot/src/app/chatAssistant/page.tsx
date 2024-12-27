@@ -27,8 +27,11 @@ export default function Chat() {
   
     try {
         const response = await axios.post(
-          "https://chatbot-backend-xyjc.onrender.com/ask",
-          { question: input },
+          "https://prana-test.onrender.com/ai",
+          {
+            "email":"ad721603@gmail.com",
+            "ques":"Hey "
+          },
           {
             headers: {
               "Content-Type": "application/json",
@@ -39,7 +42,7 @@ export default function Chat() {
         // Update to handle the "response" key correctly
         const aiMessage: { role: "ai"; content: string } = { 
           role: "ai", 
-          content: response.data.response || "No response from AI.",
+          content: response.data.response.output || "No response from AI.",
         };
         
         setMessages((prev) => [...prev, aiMessage]);
